@@ -45,7 +45,7 @@ inputs:
 		phX = pheromones(phInd,1); % get current pheromone x,y position
 		phY = pheromones(phInd,2); 
 		relativeAngle = atan2(phY-y, phX-x); 
-		if relativeAngle < -pi/2 || relativeAngle > pi/2
+		if abs(ant_angle - relativeAngle) > pi/2
 			% a ant can't smell things in this angle
 			continue; 
 		end
@@ -65,7 +65,7 @@ inputs:
 	end
 	%==============Start update the ant's angle==============
 	if maxInd ~= -1 % if the ant smelled pheromones 	
-		angle = ant_angle + relativeAngle + normpdf(rand(), 0, sigma_1); 
+		angle =  relativeAngle + normpdf(rand(), 0, sigma_1); 
 	else % if there is not pheromone in the smell area
 		angle = ant_angle + normpdf(rand(), 0, sigma_2); 
 	end
