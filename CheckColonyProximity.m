@@ -19,12 +19,12 @@ inputs:
 
 % your code here...
 	%intialize the parameters
-	indicator = false; 
+	indicator = 0; 
 	% compute the distance
 	colonyX = colony_pos(1); 
 	colonyY = colony_pos(2); 
 	dist = ((colonyX-x)*(colonyX-x) + (colonyY-y)*(colonyY-y))^0.5;
 	if dist <= colony_proximity_threshold
-		indicator = true; 
+		indicator = 1; 
 	end
 end
