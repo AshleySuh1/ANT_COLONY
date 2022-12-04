@@ -24,7 +24,7 @@ inputs:
 	% Initialize the parameters
 	minInd = -1; 
 	minDist = Inf; 
-	indicator = false; 
+	indicator = 0; 
 	[rows, cols] = size(food_sources); 
 	for foodInd = 1:rows
 		% calculate the distance
@@ -41,7 +41,7 @@ inputs:
 		end
 	end	
 	if minInd ~= -1
-		indicator = true; % grabbed the closest food	
+		indicator = 1; % grabbed the closest food	
 		% remove the food source
 		food_sources(foodInd, :) = []; 
 	end
